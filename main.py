@@ -102,4 +102,19 @@ while True:
         ball_pos = [width / 2, height / 2]
         ball_speed = [2, 2]
 
-   
+    # Ekranı temizle
+    screen.fill(WHITE)
+
+    # Skorları göster
+    score_text = font.render(f'Oyuncu 1: {player1_score} Oyuncu 2: {player2_score}', True, (0, 0, 0))
+    screen.blit(score_text, (10, 10))
+
+    # Oyuncuları ve topu çiz
+    pygame.draw.rect(screen, RED, (player1_pos[0], player1_pos[1], player_size, player_size))
+    pygame.draw.rect(screen, GREEN, (player2_pos[0], player2_pos[1], player_size, player_size))
+    pygame.draw.ellipse(screen, GREEN, (ball_pos[0], ball_pos[1], ball_size, ball_size))
+
+    # Ekranı güncelle
+    pygame.display.flip()
+    pygame.time.Clock().tick(30)
+
